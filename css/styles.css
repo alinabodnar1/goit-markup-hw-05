@@ -194,51 +194,51 @@ p {
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     opacity: 1;
-    transition: opacity 250ms var(--function-transition)
-    /* transition: background 250ms var(--function-transition); */
+    
+    transition: opacity 250ms var(--function-transition);
 }
-
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    transition: opacity 250ms var(--function-transition);
 }
 .backdrop.is-hidden .modal{
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.5);
 }
+
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    
+    padding: 8px;
     min-width: 528px;
     min-height: 581px;
+    border-radius: 4px;
     background-color: var(--primary-bg-color);
-
-    opacity: 1;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    /* Зміщення в центр і збільшення до 100% модального вікна     */
     transform: translate(-50%, -50%) scale(1);
-    transition: transform 250ms var(--function-transition),
-    opacity 250ms var(--function-transition);
+    transition: transform 250ms var(--function-transition);
 }
 .close-modal {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border: none;
-    background: transparent;
-}
-.close-icon {
     position: absolute;
     top: 8px;
     right: 8px;
-
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: fill 250ms var(--function-transition)
+    transition: fill 250ms var(--function-transition);
+    background: transparent;
 }
-
+.close-icon {
+    fill: currentColor;
+    transition: fill 250ms var(--function-transition);
+}
 .close-modal:hover .close-icon,
 .close-modal:focus .close-icon {
     fill: var(--accent-color);
@@ -297,7 +297,6 @@ p {
     justify-content: center;
 }
 .works .works-thumb{
-    /* display: block; */
     display: flex;
     align-items: flex-end;
     position: relative;
@@ -306,7 +305,6 @@ p {
 }
 .works-thumb>.works-descr{
     position: absolute;
-    /* transform: translate(0px, -6px); */
     height: 70px;
     width: 100%;
     padding-top: 23px;
@@ -507,24 +505,27 @@ p {
 }
 .grid .grid-descr {
     position: absolute;
+    bottom: 0;
+    right: 0;
     top: 0;
     left: 0;
     width: 370px;
     height: 294px;
     padding: 63px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     font-size: 18px;
     line-height: 1.56;
-    background-color: rgba(33, 150, 243, 0.9);
+    background-color: var(--accent-color);
     color: var(--primary-bg-color);
-    
-    opacity: 0;
+
     transform: translateY(100%);
-    transition: transform 2500ms var(--function-transition);
+    transition: transform 250ms var(--function-transition);
 }
 .grid-link:hover .grid-descr,
 .grid-link:focus .grid-descr{
-    opacity: 1;
     transform: translateY(0);
 }
 .project .project-title{
@@ -534,10 +535,12 @@ p {
     line-height: 2;
     letter-spacing: 0.06em;
 }
-.project .project-descr{
+.project-item .project-descr{
     margin-top: 4px;
     font-size: 16px;
     line-height: 1.88;
+    color: var(--primary-text-color);
+
 }
 .project-item{
     padding: 20px 24px;
