@@ -200,6 +200,7 @@ p {
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
     transition: opacity 250ms var(--function-transition);
 }
 .backdrop.is-hidden .modal{
@@ -370,14 +371,14 @@ p {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    transition: background-color 250ms var(--function-transition);
 }
 .social-media > .social-media-item + .social-media-item{
     margin-left: 10px;  
 }
 .social-media-link>.social-icon{
     fill: var(--icons-color);
-    transition: fill 250ms var(--function-transition), 
-    background-color 250ms var(--function-transition);
+    transition: fill 250ms var(--function-transition);
 }
 .social-media-link:hover .social-icon,
 .social-media-link:focus .social-icon{
@@ -448,7 +449,6 @@ p {
     display: inline-block;
     border-radius: 4px;
     padding: 6px 22px;
-    min-width: 103px;
     border-width: 0;
     background-color: var(--background-team-color);
     color: var(--title-text-color);
